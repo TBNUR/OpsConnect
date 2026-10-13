@@ -1,14 +1,59 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="refresh" content="0; url=https://script.google.com/macros/s/AKfycbxEYhZCWMtbRJiVuXFyaJl_Tb6USagp-K-pIjuKT2Jzsi4F0fhkV8S5c-vqGFMtgyPs/exec">
-    <title>Membuka OPSCONNECT...</title>
-  </head>
-  <body>
-    <p>Membuka aplikasi... <a href="https://script.google.com/macros/s/AKfycbxEYhZCWMtbRJiVuXFyaJl_Tb6USagp-K-pIjuKT2Jzsi4F0fhkV8S5c-vqGFMtgyPs/exec">Klik di sini jika tidak terbuka otomatis.</a></p>
-    <script>
-      window.location.replace("https://script.google.com/macros/s/AKfycbxEYhZCWMtbRJiVuXFyaJl_Tb6USagp-K-pIjuKT2Jzsi4F0fhkV8S5c-vqGFMtgyPs/exec");
-    </script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embed Web App</title>
+    <style>
+        /* Menghilangkan margin dan padding default dari body dan html */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Mencegah scrollbar muncul di luar iframe */
+            background-color: #f0f0f0; /* Warna latar belakang sementara iframe dimuat */
+        }
+
+        /* Mengatur iframe agar menutupi seluruh layar */
+        .full-screen-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none; /* Menghilangkan border iframe */
+        }
+        
+        /* Menambahkan indikator loading (opsional, tapi disarankan) */
+        .loading-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: sans-serif;
+            color: #555;
+            z-index: -1; /* Berada di belakang iframe */
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Teks yang muncul saat halaman masih loading -->
+    <div class="loading-container">
+        Memuat aplikasi...
+    </div>
+
+    <!-- 
+      Iframe untuk mengembed link Google Script.
+      Atribut 'allowfullscreen' mengizinkan konten di dalam iframe (jika didukung) untuk mode layar penuh.
+    -->
+    <iframe 
+        class="full-screen-iframe" 
+        src="https://script.google.com/macros/s/AKfycbxEYhZCWMtbRJiVuXFyaJl_Tb6USagp-K-pIjuKT2Jzsi4F0fhkV8S5c-vqGFMtgyPs/exec" 
+        title="Aplikasi Google Script Embedded"
+        allowfullscreen>
+    </iframe>
+
+</body>
 </html>

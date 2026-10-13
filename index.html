@@ -46,12 +46,13 @@
 
     <!-- 
       Iframe untuk mengembed link Google Script.
-      Atribut 'allowfullscreen' mengizinkan konten di dalam iframe (jika didukung) untuk mode layar penuh.
+      Atribut 'sandbox' ditambahkan untuk mencegah iframe mengarahkan ulang halaman utama (top-level redirect).
     -->
     <iframe 
         class="full-screen-iframe" 
         src="https://script.google.com/macros/s/AKfycbxEYhZCWMtbRJiVuXFyaJl_Tb6USagp-K-pIjuKT2Jzsi4F0fhkV8S5c-vqGFMtgyPs/exec" 
         title="Aplikasi Google Script Embedded"
+        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads"
         allowfullscreen>
     </iframe>
 

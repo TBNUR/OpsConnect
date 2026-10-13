@@ -3,57 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embed Web App</title>
+    <title>Aplikasi Web Saya</title>
+    
     <style>
-        /* Menghilangkan margin dan padding default dari body dan html */
+        /* Reset margin dan padding bawaan browser */
         html, body {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden; /* Mencegah scrollbar muncul di luar iframe */
-            background-color: #f0f0f0; /* Warna latar belakang sementara iframe dimuat */
+            /* overflow:hidden mencegah munculnya scrollbar di samping halaman utama */
+            overflow: hidden; 
+            background-color: #f5f5f5;
         }
 
-        /* Mengatur iframe agar menutupi seluruh layar */
+        /* Styling iframe agar membentang 100% menutupi layar tanpa border */
         .full-screen-iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border: none; /* Menghilangkan border iframe */
-        }
-        
-        /* Menambahkan indikator loading (opsional, tapi disarankan) */
-        .loading-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: sans-serif;
-            color: #555;
-            z-index: -1; /* Berada di belakang iframe */
+            border: none;
+            display: block;
         }
     </style>
 </head>
 <body>
-    
-    <!-- Teks yang muncul saat halaman masih loading -->
-    <div class="loading-container">
-        Memuat aplikasi...
-    </div>
 
     <!-- 
-      Iframe untuk mengembed link Google Script.
-      Atribut 'sandbox' ditambahkan untuk mencegah iframe mengarahkan ulang halaman utama (top-level redirect).
+      PENTING: Atribut 'sandbox' digunakan di bawah ini TANPA 'allow-top-navigation'.
+      Ini yang akan mengunci iframe sehingga tidak bisa melakukan redirect ke halaman Google.
     -->
     <iframe 
         class="full-screen-iframe" 
         src="https://script.google.com/macros/s/AKfycbxEYhZCWMtbRJiVuXFyaJl_Tb6USagp-K-pIjuKT2Jzsi4F0fhkV8S5c-vqGFMtgyPs/exec" 
-        title="Aplikasi Google Script Embedded"
         sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads"
-        allowfullscreen>
+        allow="camera; microphone; clipboard-write"
+        allowfullscreen="true">
     </iframe>
 
 </body>
